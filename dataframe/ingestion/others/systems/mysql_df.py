@@ -13,7 +13,6 @@ if __name__ == '__main__':
     spark = SparkSession \
         .builder \
         .appName("Read ingestion enterprise applications") \
-        .master('local[*]') \
         .getOrCreate()
     spark.sparkContext.setLogLevel('ERROR')
 
@@ -47,4 +46,4 @@ if __name__ == '__main__':
 
     txnDF.show()
 
-# spark-submit --packages "mysql:mysql-connector-java:8.0.15" dataframe/ingestion/others/systems/mysql_df.py
+# spark-submit --master yarn --packages "mysql:mysql-connector-java:8.0.15" dataframe/ingestion/others/systems/mysql_df.py
